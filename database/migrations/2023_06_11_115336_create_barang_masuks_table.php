@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('barang_masuks', function (Blueprint $table) {
             $table->id();
+            $table->string('kategori_barang');
+            $table->integer('id_barang');
+            $table->date('tgl_masuk');
+            $table->integer('jumlah_masuk');
+            $table->bigInteger('total_masuk');
             $table->timestamps();
         });
     }

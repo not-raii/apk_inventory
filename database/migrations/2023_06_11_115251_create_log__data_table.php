@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('log__data', function (Blueprint $table) {
             $table->id();
+            $table->string('kategori_barang');
+            $table->integer('id_barang');
+            $table->string('pengguna');
+            $table->date('tanggal');
+            $table->integer('jumlah');
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }
