@@ -32,7 +32,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                        @yield('table')
+                        @yield('categories')
 
                 </div>
             <!-- End of Main Content -->
