@@ -17,10 +17,10 @@ use App\Http\Controllers\AuthController;
 
 
 
-=======
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/table', [HomeController::class, 'table']);
+// Route::get('/', [HomeController::class, 'footer']);
 
 Route::get('/login', function (){
     return view('login');
 });
-
