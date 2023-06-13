@@ -32,19 +32,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($data as $item)          
                                         <tr>
-                                            <td>1. </td>
-                                            <td>06/12/2023</td>
-                                            <td>AA0B3</td>
+                                            <td>{{ $item->id }}</td>
+                                            <td>{{ $item->tanggal }}</td>
+                                            <td>{{ $item->code->kode_barang }}</td>
                                             <td>
-                                                <img src="" alt="">
+                                                {{ $item->gambar_barang }}
                                             </td>
-                                            <td>Komputer</td>
-                                            <td>10</td>
-                                            <td>Rp. 100,000</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>7</td>
+                                            <td>{{ $item->code->nama_barang }}</td>
+                                            <td>{{ $item->stok_awal }}</td>
+                                            <td>{{ $item->code->harga }}</td>
+                                            <td>{{ $item->barang_masuk }}</td>
+                                            <td>{{ $item->barang_keluar }}</td>
+                                            <td>{{ $item->stok_akhir }}</td>     
                                             <td>
                                                 <div>
                                                     <button class="btn btn-info">Edit</button>
@@ -52,26 +53,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1. </td>
-                                            <td>06/12/2023</td>
-                                            <td>AA0B3</td>
-                                            <td>
-                                                <img src="" alt="">
-                                            </td>
-                                            <td>10</td>
-                                            <td>Rp. 100,000</td>
-                                            <td>2</td>
-                                            <td>5</td>
-                                            <td>7</td>
-                                            <td>
-                                                <div>
-                                                    <button class="btn btn-info">Edit</button>
-                                                    <button class="btn btn-danger">Hapus</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

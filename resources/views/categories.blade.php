@@ -5,13 +5,15 @@
                     <!-- Page Heading -->
                     <div class="page-heading d-flex justify-content-between mx-4 mb-2">
                         <h1 class="h3 mb-2 text-gray-800">Kategori</h1>
-                        <button class="btn btn-success">+ Tambah</button>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kategori Barang</h6>
+                        <div class="card-header py-3 d-flex justify-content-between">
+                            <h6 class="font-weight-bold text-primary mt-2 ml-2">Data Kategori Barang</h6>
+                            <div>
+                                <a class="btn btn-success" href="kategori_add">+ Tambah</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -24,13 +26,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $no = 1;
+                                        @endphp
                                         @foreach ($data as $row)    
                                         <tr>
-                                            <td class="number">{{ $row->id }}.</td>
+                                            <td class="number">{{ $no++ }}.</td>
                                             <td class="text-capitalize">{{ $row->nama_kategori }}</td>
                                             <td>
                                                 <div>
-                                                    <button class="btn btn-danger">Hapus</button>
+                                                    <a href="/delete_category/{{ $row->id }}" class="btn btn-danger">Hapus</a>
                                                 </div>
                                             </td>
                                         </tr>

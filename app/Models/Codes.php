@@ -9,15 +9,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Codes extends Model
 {
-    protected $table = "codes";
-    protected $primaryKey = "id";
-    protected $fillable = 
-    [
-        'id','kode_barang', 'nama_barang', 'jumlah_barang', 'id_categories'
+    use HasFactory;
+
+    protected $fillable = [
+        'kode_barang',
+        'nama_barang',
+        'jumlah_barang',
+        'harga',
+        'id_categories'
     ];
 
     public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'id_categories', 'id');
     }
 }
