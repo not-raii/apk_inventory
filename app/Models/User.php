@@ -12,8 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'users';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -36,7 +34,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    const CREATED_AT = 'creation_at';
-    const UPDATED_AT = 'updated_at';
-
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
 }
