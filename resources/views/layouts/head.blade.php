@@ -1,5 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
 
@@ -9,10 +11,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GudangIT - Dashboard</title>
+    <title>GudangIT - {{ $title }}</title>
 
     <!-- Icon-->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ 'favicon.svg' }}" type="image/x-icon">
 
     <!-- Custom fonts for this template-->
     <link href="{{ 'assets/vendor/fontawesome-free/css/all.min.css' }}" rel="stylesheet" type="text/css">

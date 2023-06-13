@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +22,9 @@
     <link href="./assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+=======
+@extends('layouts/head')
+>>>>>>> c8c3cf08a4dad141b0f8fab6c6dd31f51c266bcf
 
 <body class="bg-gradient-primary">
 
@@ -77,15 +81,7 @@
 
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="./assets/vendor/jquery/jquery.min.js"></script>
-    <script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="./assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="./assets/js/sb-admin-2.min.js"></script>
+    @include('layouts/bottom')
 
 </body>
 
