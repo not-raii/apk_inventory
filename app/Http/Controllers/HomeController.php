@@ -8,11 +8,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('dashboard');
+        return view('dashboard',
+        [
+            "title" => "Dashboard"
+        ]);
     }
-    public function table()
-    {
-        return view('items');
-    }
-    
 }

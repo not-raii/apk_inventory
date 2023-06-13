@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CodesController;
 use App\Http\Controllers\CategoriesController;
 
 /*
@@ -19,10 +20,8 @@ use App\Http\Controllers\CategoriesController;
 
 
 
+Route::get('/login', [AuthController::class, 'login']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/kategori', [CategoriesController::class, 'kategori']);
-Route::get('/table', [ItemController::class, 'table']);
-
-Route::get('/login', function (){
-    return view('login');
-});
+Route::get('/kode_barang', [CodesController::class, 'kode']);
+Route::get('/data_barang', [ItemController::class, 'barang']);

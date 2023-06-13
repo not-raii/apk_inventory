@@ -10,6 +10,9 @@ class CategoriesController extends Controller
     public function kategori()
     {
         $data = Category::all();
-        return view('categories', compact('data'));
+        return view('categories', compact('data'),
+        [
+            "title" => "Kategori"
+        ]);
     }
 }

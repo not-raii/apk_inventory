@@ -1,7 +1,7 @@
 @extends('templates/default')
 
 
-@section('table')
+@section('content')
                     <!-- Page Heading -->
                     <div class="page-heading d-flex justify-content-between mx-4 mb-2">
                         <h1 class="h3 mb-2 text-gray-800">Data Barang</h1>

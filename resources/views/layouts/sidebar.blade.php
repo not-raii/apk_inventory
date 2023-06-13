@@ -1,3 +1,5 @@
+
+
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon">
@@ -7,8 +9,8 @@
 </a>
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-    <a class="nav-link" href="index.html">
+<li class="nav-item {{ ($title == "Dashboard") ? 'active' : '' }}">
+    <a class="nav-link" href="/">
         <i class="far fa-chart-bar"></i>
         <span>Dashboard</span></a>
 </li>
@@ -23,7 +25,7 @@
 
 <!-- Nav Item - Pages Collapse Menu Users -->
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePageUser"
+    <a class="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapsePageUser"
         aria-expanded="true" aria-controls="collapsePageUser">
         <i class="fas fa-users"></i>
         <span>Data Pengguna</span>
@@ -49,10 +51,10 @@
     </a>
     <div id="collapsePageItems" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="register.html">
+            <a class="collapse-item {{ ($title == "Kategori") ? 'active' : '' }}" href="/kategori">
                 <i class="fas fa-file-alt"></i>
                 Kategori</a>
-            <a class="collapse-item" href="forgot-password.html">
+            <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang">
                 <i class="fas fa-file-code"></i>
                 Kode Barang</a>
         </div>
@@ -62,8 +64,8 @@
 
 
 <!-- Nav Item - Barang -->
-<li class="nav-item">
-    <a class="nav-link" href="tables.html">
+<li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}">
+    <a class="nav-link" href="/data_barang">
         <i class="fas fa-boxes"></i>
         <span>Barang</span></a>
 </li>

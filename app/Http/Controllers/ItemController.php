@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    public function table()
+    public function barang()
     {
-        return view('items');
+        return view('items', 
+        [
+            "title" => "Data Barang"
+        ]);
     }
     
 }
