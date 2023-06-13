@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>GudangIT - {{ $title }}</title>
+    {{-- <title>GudangIT - {{ $title }}</title> --}}
 
     <!-- Icon-->
     <link rel="shortcut icon" href="{{ 'favicon.svg' }}" type="image/x-icon">

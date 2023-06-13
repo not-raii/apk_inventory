@@ -3,14 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-<<<<<<< HEAD
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AdminController;
-=======
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CodesController;
 use App\Http\Controllers\CategoriesController;
->>>>>>> c8c3cf08a4dad141b0f8fab6c6dd31f51c266bcf
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +21,6 @@ use App\Http\Controllers\CategoriesController;
 |
 */
 
-
-
-<<<<<<< HEAD
 // Route::get('/', [HomeController::class, 'index']);
 // Route::get('/table', [HomeController::class, 'table']);
 // // Route::get('/', [HomeController::class, 'footer']);
@@ -47,10 +42,10 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/user', [AdminController::class, 'user'])->middleware('userAkses:user');
     Route::get('/logout',[SesiController::class, 'logout']);
 });
-=======
-Route::get('/login', [AuthController::class, 'login']);
-Route::get('/', [HomeController::class, 'index']);
+
+// Route::get('/login', [AuthController::class, 'login']);
+Route::get('/admin', [HomeController::class, 'admin']);
 Route::get('/kategori', [CategoriesController::class, 'kategori']);
 Route::get('/kode_barang', [CodesController::class, 'kode']);
 Route::get('/data_barang', [ItemController::class, 'barang']);
->>>>>>> c8c3cf08a4dad141b0f8fab6c6dd31f51c266bcf
+

@@ -9,7 +9,7 @@
 </a>
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item {{ ($title == "Dashboard") ? 'active' : '' }}">
+<li class="nav-item {{ ($title == "Dashboard Admin") ? 'active' : '' }}">
     <a class="nav-link" href="/">
         <i class="far fa-chart-bar"></i>
         <span>Dashboard</span></a>

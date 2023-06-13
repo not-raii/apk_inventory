@@ -6,11 +6,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function admin()
     {
-        return view('dashboard',
+        return view('dashboardAdmin',
         [
-            "title" => "Dashboard"
+            "title" => "Dashboard Admin"
+        ]);
+    }
+    public function user()
+    {
+        return view('dashboardUser',
+        [
+            "title" => "Dashboard User"
         ]);
     }
 }
