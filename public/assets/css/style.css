@@ -10016,7 +10016,7 @@ a:focus {
 }
 
 .text-gray-600 {
-  color: #858796 !important;
+  color: #383942 !important;
 }
 
 .text-gray-700 {
@@ -10394,6 +10394,12 @@ a:focus {
   white-space: nowrap;
 }
 
+.sidebar .nav-item .collapse .collapse-inner .collapse-item, .sidebar .nav-item .collapsing .collapse-inner .collapse-item i{
+  margin-bottom: 2px;
+  margin-right: 0.25rem;
+}
+
+
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
   background-color: #eaecf4;
@@ -10438,6 +10444,10 @@ a:focus {
   overflow: hidden;
 }
 
+.sidebar .sidebar-brand .sidebar-brand-icon img{
+  width: 20%;
+}
+
 .sidebar.toggled #sidebarToggle::after {
   content: '\f105';
   font-family: 'Font Awesome 5 Free';
@@ -10458,10 +10468,6 @@ a:focus {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   z-index: 1;
-}
-
-.sidebar .sidebar-brand .sidebar-brand-icon i {
-  font-size: 2rem;
 }
 
 .sidebar .sidebar-brand .sidebar-brand-text {
@@ -10604,12 +10610,15 @@ a:focus {
     padding: 0.75rem 1rem;
     width: 6.5rem;
   }
+  .sidebar.toggled hr.sidebar-divider{
+    margin: 0 1rem !important;
+  }
   .sidebar.toggled .nav-item .nav-link span {
-    font-size: 0.65rem;
-    display: block;
+    display: none;
   }
   .sidebar.toggled .nav-item .nav-link i {
     margin-right: 0;
+    font-size: 1.2rem;
   }
   .sidebar.toggled .nav-item .nav-link[data-toggle="collapse"]::after {
     display: none;
@@ -10621,7 +10630,14 @@ a:focus {
     display: none;
   }
   .sidebar.toggled .sidebar-heading {
-    text-align: center;
+    display: none;
+  }
+  .sidebar.toggled .sidebar-brand .sidebar-brand-icon img {
+    width: 55% !important;
+    padding: 0 !important ;
+  }
+  .sidebar #sidebarToggle{
+    margin-top: 0.5rem;
   }
 }
 

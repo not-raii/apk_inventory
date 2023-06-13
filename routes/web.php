@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CodesController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +20,8 @@ use App\Http\Controllers\AuthController;
 
 
 
+Route::get('/login', [AuthController::class, 'login']);
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/table', [HomeController::class, 'table']);
-// Route::get('/', [HomeController::class, 'footer']);
-
-Route::get('/login', function (){
-    return view('login');
-});
+Route::get('/kategori', [CategoriesController::class, 'kategori']);
+Route::get('/kode_barang', [CodesController::class, 'kode']);
+Route::get('/data_barang', [ItemController::class, 'barang']);

@@ -1,5 +1,4 @@
 @extends('layouts/head')
-@include('layouts/bottom')
 @include('layouts/logout')
 
 
@@ -33,7 +32,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                        @yield('dashboard')
+                        @yield('content')
 
                 </div>
             <!-- End of Main Content -->
@@ -45,8 +44,7 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Page level custom scripts -->
-    <script src="{{ '/assets/js/demo/chart-area-demo.js' }}"></script>
-    <script src="{{ '/assets/js/demo/chart-pie-demo.js' }}"></script>
+    @include('layouts/bottom')
+
 </body>
 </html>
