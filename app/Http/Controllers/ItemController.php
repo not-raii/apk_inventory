@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Supplies;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+
     public function barang()
     {
-        return view('items', 
+        $data = Supplies::paginate(10);
+        return view('items', compact('data'),
         [
             "title" => "Data Barang"
         ]);

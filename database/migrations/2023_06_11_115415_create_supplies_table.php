@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('supplies', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
+            $table->dateTime('tanggal');
             $table->integer('id_kode');
             $table->string('gambar_barang');
-            $table->string('nama_barang');
             $table->integer('stok_awal');
-            $table->bigInteger('harga')->nullable();
             $table->integer('barang_masuk');
             $table->integer('barang_keluar');
             $table->integer('stok_akhir');
