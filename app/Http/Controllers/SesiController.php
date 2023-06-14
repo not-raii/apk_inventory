@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class SesiController extends Controller
@@ -26,7 +28,7 @@ class SesiController extends Controller
         ];
 
         if(Auth::attempt($infologin)) {
-           if(Auth::user()->role == 'admin') {
+           if(Auth::user()->role == 'admin' ) {
             return redirect('admin');
            }elseif (Auth::user()->role == 'user') {
             return redirect('user');

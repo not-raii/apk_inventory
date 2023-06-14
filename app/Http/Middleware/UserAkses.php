@@ -15,7 +15,7 @@ class UserAkses
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if(auth()->user()->role == $role){
+        if(auth()->user()->role_id == $role){
             return $next($request);
         }
         return response()->json(['ACCESS DENIED']);

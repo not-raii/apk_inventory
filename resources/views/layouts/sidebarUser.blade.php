@@ -24,42 +24,9 @@
 </div>
 
 <!-- Nav Item - Pages Collapse Menu Users -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapsePageUser"
-        aria-expanded="true" aria-controls="collapsePageUser">
-        <i class="fas fa-users"></i>
-        <span>Data Pengguna</span>
-    </a>
-    <div id="collapsePageUser" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="register.html">
-                <i class="fas fa-user-tie"></i>
-                Admin</a>
-            <a class="collapse-item" href="forgot-password.html">
-                <i class="fas fa-user"></i>
-                User</a>
-        </div>
-    </div>
-</li>
+
 
 <!-- Nav Item - Pages Collapse Menu Users -->
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePageItems"
-        aria-expanded="true" aria-controls="collapsePageItems">
-        <i class="fas fa-stream"></i>
-        <span>Data Barang</span>
-    </a>
-    <div id="collapsePageItems" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item {{ ($title == "Kategori") ? 'active' : '' }}" href="/kategori">
-                <i class="fas fa-file-alt"></i>
-                Kategori</a>
-            <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang">
-                <i class="fas fa-file-code"></i>
-                Kode Barang</a>
-        </div>
-    </div>
-</li>
 
 
 
@@ -71,12 +38,6 @@
 </li>
 
 <!-- Divider -->
-<hr class="sidebar-divider d-none d-md-block">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-    Data Laporan
-</div>
 
 <!-- Nav Item - Barang Masuk -->
 <li class="nav-item">
@@ -96,16 +57,6 @@
 <hr class="sidebar-divider d-none d-md-block">
 
 <!-- Heading -->
-<div class="sidebar-heading">
-    Pengaturan
-</div>
-
-<!-- Nav Item - Manajemen Users -->
-<li class="nav-item">
-    <a class="nav-link" href="tables.html">
-        <i class="fas fa-users-cog"></i>
-        <span>Manajemen Pengguna</span></a>
-</li>
 
 <!-- Nav Item - Log Out Menu -->
 <li class="nav-item">

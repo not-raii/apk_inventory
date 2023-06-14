@@ -48,4 +48,5 @@ Route::get('/admin', [HomeController::class, 'admin']);
 Route::get('/kategori', [CategoriesController::class, 'kategori']);
 Route::get('/kode_barang', [CodesController::class, 'kode']);
 Route::get('/data_barang', [ItemController::class, 'barang']);
+Route::get('/dataAdmin', [HomeController::class, 'dataAdmin']);
 
