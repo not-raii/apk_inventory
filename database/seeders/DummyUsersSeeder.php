@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,21 +16,27 @@ class DummyUsersSeeder extends Seeder
     {
         $userData = [
             [
-                'name' => 'admin inven',
-                'email' => 'admin@gmail.com',
-                'role' => 'admin',
-                'password' => bcrypt('123456')
-            ],
-            [
                 'name' => 'user inven',
                 'email' => 'user@gmail.com',
-                'role' => 'user',
+                'role_id' => '2',
                 'password' => bcrypt('123456')
             ],
         ];
 
         foreach ($userData as $key => $val) {
             User::create($val);
+        }
+        $adminData = [
+            [
+                'name' => 'admin inven',
+                'email' => 'admin@gmail.com',
+                'role_id' => '1',
+                'password' => bcrypt('123456')
+            ],
+        ];
+
+        foreach ($adminData as $key => $val) {
+            Admin::create($val);
         }
     }
 }

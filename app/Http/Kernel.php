@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CekLevel;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,6 +64,31 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'userAkses' => \App\Http\Middleware\UserAkses::class
+        'ceklevel' => App\Http\Middleware\CekLevel::class,
+        // 'userAkses' => \App\Http\Middleware\UserAkses::class,
     ];
+
+	/**
+	 * The application's route middleware.
+	 * 
+	 * These middleware may be assigned to groups or used individually.
+	 * 
+	 * @return array<string, class-string|string>
+	 */
+	public function getRouteMiddleware() {
+		return $this->routeMiddleware;
+	}
+	
+	/**
+	 * The application's route middleware.
+	 * 
+	 * These middleware may be assigned to groups or used individually.
+	 * 
+	 * @param array<string, class-string|string> $routeMiddleware The application's route middleware.
+	 * @return self
+	 */
+	public function setRouteMiddleware($routeMiddleware): self {
+		$this->routeMiddleware = $routeMiddleware;
+		return $this;
+	}
 }

@@ -9,7 +9,7 @@
 </a>
 
 <!-- Nav Item - Dashboard -->
-{{-- <li class="nav-item {{ ($title == "Dashboard Admin") ? 'active' : '' }}"> --}}
+<li class="nav-item {{ ($title == "Dashboard Admin") ? 'active' : '' }}">
     <a class="nav-link" href="/">
         <i class="far fa-chart-bar"></i>
         <span>Dashboard</span></a>
@@ -51,10 +51,10 @@
     </a>
     <div id="collapsePageItems" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            {{-- <a class="collapse-item {{ ($title == "Kategori") ? 'active' : '' }}" href="/kategori"> --}}
+            <a class="collapse-item {{ ($title == "Kategori") ? 'active' : '' }}" href="/kategori">
                 <i class="fas fa-file-alt"></i>
                 Kategori</a>
-            {{-- <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang"> --}}
+            <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang">
                 <i class="fas fa-file-code"></i>
                 Kode Barang</a>
         </div>
@@ -64,7 +64,7 @@
 
 
 <!-- Nav Item - Barang -->
-{{-- <li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}"> --}}
+<li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}">
     <a class="nav-link" href="/data_barang">
         <i class="fas fa-boxes"></i>
         <span>Barang</span></a>
