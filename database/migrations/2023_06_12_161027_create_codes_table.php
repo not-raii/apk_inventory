@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
             $table->string('kode_barang');
+            $table->string('gambar_barang');
             $table->string('nama_barang');
-            $table->integer('jumlah_barang');
             $table->bigInteger('harga')->nullable();
             $table->bigInteger('id_categories');
             $table->timestamps();

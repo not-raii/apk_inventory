@@ -14,24 +14,24 @@
         <div class="d-flex">
             
             <div class="btn-group">
-                <button class="btn btn-secondary btn-sm dropdown-toggle mr-3" type="button" data-toggle="dropdown" aria-expanded="false">
+                <button id="filter-kategori" class="filter btn btn-secondary btn-sm dropdown-toggle mr-3" type="button" data-toggle="dropdown" aria-expanded="false">
                   Kategori
                 </button>
                 <div class="dropdown-menu">
                     @foreach ($kategori as $item)
-                        <option class="dropdown-item" name="nama_kategori" selected="{{ isset($_GET['nama_kategori']) && $_GET['nama_kategori'] == 'nama_kategori' }}" value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                        <option class="dropdown-item " name="nama_kategori" selected="{{ isset($_GET['nama_kategori']) && $_GET['nama_kategori'] == 'nama_kategori' }}" value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
                         @endforeach
                 </div>
               </div>
 
-              <div>
-                <a class="btn btn-success" href="kode_barang_add">+ Tambah</a>
+                <div>
+                    <a class="btn btn-success" href="kode_barang_add">+ Tambah</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+        <div class="card-body">
+            <div class="table-responsive">
+             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -63,6 +63,7 @@
 
                 </tbody>
             </table>
+            {{ $data->links() }}
         </div>
     </div>
 </div>

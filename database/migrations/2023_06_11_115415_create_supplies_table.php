@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->dateTime('tanggal');
             $table->integer('id_kode');
-            $table->string('gambar_barang');
             $table->integer('stok_awal');
             $table->integer('barang_masuk');
             $table->integer('barang_keluar');

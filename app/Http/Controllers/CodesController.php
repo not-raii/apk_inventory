@@ -11,7 +11,7 @@ class CodesController extends Controller
     public function kode(Request $request)
     {
         $kategori = Category::query()->select('id', 'nama_kategori')->get();
-        $data = Codes::paginate(10);
+        $data = Codes::paginate(5);
 
         $kategori->when($request->nama_kategori, function ($query) use ($request){
             return $query->whereCategory($request->nama_kategori);

@@ -53,4 +53,8 @@
     e.preventDefault();
   });
 
+  //Filtering
+
+
+
 })(jQuery); // End of use strict
