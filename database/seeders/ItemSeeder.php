@@ -15,16 +15,6 @@ class ItemSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('supplies')->insert([
-            'tanggal' => '12/06/2023',
-            'kode barang' => '',
-            'gambar barang' => 'tes',
-            'nama barang' => 'hengpong',
-            'stok awal' => '2',
-            'harga' => 'Rp. 3.000.000',
-            'barang masuk' => '1',
-            'barang keluar' => '1',
-            'stok akhir' => '1',
-        ]);
+        //
     }
 }
