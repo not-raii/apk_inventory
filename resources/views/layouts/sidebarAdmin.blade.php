@@ -9,7 +9,7 @@
 </a>
 
 <!-- Nav Item - Dashboard -->
-<li class="nav-item {{ ($title == "Dashboard") ? 'active' : '' }}">
+{{-- <li class="nav-item {{ ($title == "Dashboard Admin") ? 'active' : '' }}"> --}}
     <a class="nav-link" href="/">
         <i class="far fa-chart-bar"></i>
         <span>Dashboard</span></a>
@@ -32,7 +32,7 @@
     </a>
     <div id="collapsePageUser" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="register.html">
+            <a class="collapse-item" href="/dataAdmin">
                 <i class="fas fa-user-tie"></i>
                 Admin</a>
             <a class="collapse-item" href="forgot-password.html">
@@ -51,10 +51,10 @@
     </a>
     <div id="collapsePageItems" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item {{ ($title == "Kategori") ? 'active' : '' }}" href="/kategori">
+            {{-- <a class="collapse-item {{ ($title == "Kategori") ? 'active' : '' }}" href="/kategori"> --}}
                 <i class="fas fa-file-alt"></i>
                 Kategori</a>
-            <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang">
+            {{-- <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang"> --}}
                 <i class="fas fa-file-code"></i>
                 Kode Barang</a>
         </div>
@@ -64,7 +64,7 @@
 
 
 <!-- Nav Item - Barang -->
-<li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}">
+{{-- <li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}"> --}}
     <a class="nav-link" href="/data_barang">
         <i class="fas fa-boxes"></i>
         <span>Barang</span></a>
@@ -109,7 +109,7 @@
 
 <!-- Nav Item - Log Out Menu -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="/logout">
     <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
         <span>Keluar</span></a>
 </li>

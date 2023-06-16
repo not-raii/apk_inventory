@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +22,9 @@
     <link href="./assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-=======
+
 @extends('layouts/head')
->>>>>>> c8c3cf08a4dad141b0f8fab6c6dd31f51c266bcf
+
 
 <body class="bg-gradient-primary">
 

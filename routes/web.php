@@ -9,6 +9,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CodesController;
 use App\Http\Controllers\CategoriesController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +25,11 @@ use App\Http\Controllers\CategoriesController;
 
 
 
+
+
 // Route::get('/', [HomeController::class, 'index']);
 // Route::get('/table', [HomeController::class, 'table']);
-// // Route::get('/', [HomeController::class, 'footer']);
+// Route::get('/', [HomeController::class, 'footer']);
 
 // Route::get('/login', function (){
 //     return view('login');
@@ -49,6 +53,16 @@ Route::get('/login', [AuthController::class, 'login']);
 
 Route::get('/', [HomeController::class, 'index']);
 
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/admin', [AdminController::class, 'index'])->middleware('userAkses:admin');
+    Route::get('/user', [AdminController::class, 'user'])->middleware('userAkses:user');
+    Route::get('/logout',[SesiController::class, 'logout']);
+});
+
+// Route::get('/login', [AuthController::class, 'login']);
+Route::get('/admin', [HomeController::class, 'admin']);
+
 Route::get('/kategori', [CategoriesController::class, 'kategori']);
 Route::get('/kategori_add', [CategoriesController::class, 'tambah']);
 Route::get('/delete_category/{id}', [CategoriesController::class, 'hapus']);
@@ -63,4 +77,6 @@ Route::post('/kode_barang', [CodesController::class, 'store']);
 Route::get('/data_barang', [ItemController::class, 'barang']);
 
 
+
+Route::get('/dataAdmin', [HomeController::class, 'dataAdmin']);
 
