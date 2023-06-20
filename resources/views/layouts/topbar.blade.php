@@ -33,25 +33,17 @@
     <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> aaafde77cd4ad0b42909279c009e31973161c70a
             {{-- <a href="logout">Logout</a> --}}
 
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kyra Kun</span>
             <img class="img-profile rounded-circle"
                 src="{{ 'assets/images/users/kyra.png' }}">
 
-<<<<<<< HEAD
-=======
-            {{-- <a href="logout">Logout</a> --}}
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kyra Kun</span>
-            <img class="img-profile rounded-circle" src="{{ 'assets/images/users/kyra.png' }}">
->>>>>>> f200a14e4531ab1a75c29b7963cf9a51d762d1f1
-=======
->>>>>>> aaafde77cd4ad0b42909279c009e31973161c70a
+
+
+            
+
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

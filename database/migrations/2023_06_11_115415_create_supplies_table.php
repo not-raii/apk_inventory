@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('supplies', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('tanggal');
             $table->integer('id_kode');
             $table->string('gambar_barang');
             $table->integer('stok_awal');

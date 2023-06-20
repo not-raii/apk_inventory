@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CodesController;
 use App\Http\Controllers\CategoriesController;
-<<<<<<< HEAD
+use App\Http\Controllers\ManageUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,52 +28,46 @@ use App\Http\Controllers\CategoriesController;
 // Route::get('/login', function (){
 //     return view('login');
 // });
-// Route::middleware(['guest'])->group(function(){
-//     Route::get('/', [SesiController::class, 'index'])->name('login');
-//     Route::post('/', [SesiController::class, 'login']);
-// });
+Route::middleware(['guest'])->group(function(){
+    Route::get('/', [SesiController::class, 'index'])->name('login');
+    Route::post('/', [SesiController::class, 'login']);
+});
 
-// Route::get('/home', function(){
-//     return redirect('/admin');
-// });
-
-// Route::middleware(['auth'])->group(function(){
-//     Route::get('/admin', [AdminController::class, 'index'])->middleware('userAkses:admin');
-//     Route::get('/user', [AdminController::class, 'user'])->middleware('userAkses:user');
-//     Route::get('/logout',[SesiController::class, 'logout']);
-// });
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('/admin', [AdminController::class, 'index'])->middleware('userAkses:admin');
-    Route::get('/user', [AdminController::class, 'user'])->middleware('userAkses:user');
+    Route::get('/admin', [AdminController::class, 'index'])->middleware('adminAkses');
+    Route::get('/user', [AdminController::class, 'user'])->middleware('userAkses');
     Route::get('/logout',[SesiController::class, 'logout']);
 });
 
 // Route::get('/login', [AuthController::class, 'login']);
 Route::get('/admin', [HomeController::class, 'admin']);
+Route::get('/user', [HomeController::class, 'user']);
 
-Route::get('/login', [AuthController::class, 'login']);
+// Route::get('/login', [AuthController::class, 'login']);
 
-Route::get('/', [HomeController::class, 'index']);
+// Route::get('/', [HomeController::class, 'admin']);
 
 
-=======
+// Route::get('/home', function(){
+//     return redirect('/admin');
+// });
 use GuzzleHttp\Middleware;
 
 // Login
-Route::get('/', [AuthController::class, 'login']);
-Route::post('/', [AuthController::class, 'auth']);
+// Route::get('/', [AuthController::class, 'login']);
+// Route::post('/', [AuthController::class, 'auth']);
 
-Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function(){
-    route::get('/dashboard', 'AdminController@index')->name('dashboard');
-});
+// Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function(){
+//     route::get('/dashboard', 'AdminController@index')->name('dashboard');
+// });
 
-Route::group(['middleware' => ['auth:users', 'ceklevel:users']], function(){
-    route::get('/dashboard', 'AdminController@user')->name('dashboard');
-});
+// Route::group(['middleware' => ['auth:users', 'ceklevel:users']], function(){
+//     route::get('/dashboard', 'AdminController@user')->name('dashboard');
+// });
 
 // Kategori
->>>>>>> aaafde77cd4ad0b42909279c009e31973161c70a
+
 Route::get('/kategori', [CategoriesController::class, 'kategori']);
 Route::get('/kategori_add', [CategoriesController::class, 'tambah']);
 Route::get('/delete_category/{id}', [CategoriesController::class, 'hapus']);
@@ -87,14 +81,18 @@ Route::post('/kode_barang', [CodesController::class, 'store']);
 
 // Data barang
 Route::get('/data_barang', [ItemController::class, 'barang']);
-<<<<<<< HEAD
+
 Route::get('/dataAdmin', [HomeController::class, 'dataAdmin']);
-=======
+
+// Manage User
 
 
 
 // Route::get('/dataAdmin', [HomeController::class, 'dataAdmin']);
-
->>>>>>> aaafde77cd4ad0b42909279c009e31973161c70a
-
+Route::get('/manageUser', [ManageUserController::class, 'index'])->name('user.manage');
+Route::get('/user_add', [ManageUserController::class, 'tambah']);
+Route::post('/user_add', [ManageUserController::class, 'store']);
+Route::get('/edit_user/{id}', [ManageUserController::class, 'edit']);
+Route::put('/edit_user/{id}', [ManageUserController::class, 'update'])->name('user.update');
+Route::get('/delete_user/{id}', [ManageUserController::class, 'hapus']);
 

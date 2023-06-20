@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('kategori_barang');
             $table->integer('id_barang');
             $table->date('tgl_keluar');
-            $table->integer('jumlah_keluar');
             $table->bigInteger('total_keluar');
             $table->timestamps();
         });

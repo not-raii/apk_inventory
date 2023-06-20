@@ -13,7 +13,7 @@ class SesiController extends Controller
         return view('login');
     }
 
-    function login(Request $request) {
+    public function login(Request $request) {
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -28,9 +28,9 @@ class SesiController extends Controller
         ];
 
         if(Auth::attempt($infologin)) {
-           if(Auth::user()->role == 'admin' ) {
+           if(Auth::user()->role_id == 1 ) {
             return redirect('admin');
-           }elseif (Auth::user()->role == 'user') {
+           }elseif (Auth::user()->role_id == 2) {
             return redirect('user');
         } else{
             return redirect('')->withErrors('kesalahan pada username atau password')->withInput();

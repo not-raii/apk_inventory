@@ -102,7 +102,7 @@
 
 <!-- Nav Item - Manajemen Users -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="manageUser">
         <i class="fas fa-users-cog"></i>
         <span>Manajemen Pengguna</span></a>
 </li>
