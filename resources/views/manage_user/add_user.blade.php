@@ -35,12 +35,24 @@
                 </div>
                 <div class="form-group">
                     <label for="role">Role</label>
-                    <select name="role_id" class="form-control">
+                    <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
                         <option value="">Pilih Role</option>
                         @foreach ($user as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
+                    @error('role_Id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input name="password" id="password" type="password"
+                        class="form-control @error('password') is-invalid @enderror" 
+                        value="{{ old('password') }}">
+                    @error('password')
+                    <div class="invalid-feedback">{{ $messages }}</div>
+                    @enderror
                 </div>
                 <div class="d-flex justify-content-between mx-2">
                     <a class="btn btn-info" href="manageUser"> Kembali </a>

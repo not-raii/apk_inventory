@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function admin()
+    public function index()
     {
         return view('dashboardAdmin',
         [

@@ -14,6 +14,7 @@ class SesiController extends Controller
     }
 
     public function login(Request $request) {
+        // dd($request->all());
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -29,9 +30,9 @@ class SesiController extends Controller
 
         if(Auth::attempt($infologin)) {
            if(Auth::user()->role_id == 1 ) {
-            return redirect('admin');
+            return redirect()->route('home.admin');
            }elseif (Auth::user()->role_id == 2) {
-            return redirect('user');
+            return redirect()->route('home.user');
         } else{
             return redirect('')->withErrors('kesalahan pada username atau password')->withInput();
         }

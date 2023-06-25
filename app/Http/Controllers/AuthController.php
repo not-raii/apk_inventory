@@ -19,7 +19,7 @@ class AuthController extends Controller
 
     public function auth(Request $request){
         
-        $request->validate([
+        $input = $request->validate([
             'email' => 'required',
             'password' => 'required',
         ], [
@@ -27,23 +27,32 @@ class AuthController extends Controller
             'password.required' => 'password wajib diisi',
         ]);
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password, 
-        ];
-
-        if(Auth::guard('admin')->attempt($infologin)) {
-            return redirect('dashboard');
-         } elseif(Auth::guard('users')->attempt($infologin)){
-            return redirect('dashboard');
+        if (Auth::attempt($input)) {
+            $request->session()->regenerate();
+            return redirect()->intended('home');
         }
-         return redirect('login')->withErrors('kesalahan pada username atau password')->withInput();
+
+        // $infologin = [
+        //     'email' => $request->email,
+        //     'password' => $request->password, 
+        // ];
+
+        // if(Auth::attempt($infologin)) {
+        //     return redirect('dashboard');
+        //  } elseif(Auth::guard('users')->attempt($infologin)){
+        //     return redirect('dashboard');
+        // }
+         return redirect('/')->withErrors('kesalahan pada username atau password')->withInput();
     }
 
-    function logout()
-    {
+    public function logout(Request $request) {
         Auth::logout();
-        return  redirect('login');
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
     }
 
 }

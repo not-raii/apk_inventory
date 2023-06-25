@@ -100,12 +100,14 @@
     Pengaturan
 </div>
 
-<!-- Nav Item - Manajemen Users -->
+@if (Auth::user()->role_id == 1)
 <li class="nav-item">
     <a class="nav-link" href="manageUser">
         <i class="fas fa-users-cog"></i>
         <span>Manajemen Pengguna</span></a>
 </li>
+@endif
+<!-- Nav Item - Manajemen Users -->
 
 <!-- Nav Item - Log Out Menu -->
 <li class="nav-item">

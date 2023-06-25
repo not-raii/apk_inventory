@@ -36,7 +36,7 @@
 
             {{-- <a href="logout">Logout</a> --}}
 
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kyra Kun</span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
             <img class="img-profile rounded-circle"
                 src="{{ 'assets/images/users/kyra.png' }}">
 
