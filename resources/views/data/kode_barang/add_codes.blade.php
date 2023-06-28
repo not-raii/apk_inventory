@@ -48,12 +48,16 @@
                 </div>
                 <div class="form-group">
                     <label for="kategori">Kategori</label>
-                    <select name="id_categories" class="form-control" id="kategori">
+                    <select name="id_categories" class="form-control @error('id_categories') is-invalid @enderror">
                         <option value="">Pilih Kategori</option>
                         @foreach ($kategori as $item)
                         <option value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
                         @endforeach
                     </select>
+                    @error('id_categories')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                    
                 </div>
                 <div class="d-flex justify-content-between mx-2">
                     <a class="btn btn-info" href="kode_barang"> Kembali </a>

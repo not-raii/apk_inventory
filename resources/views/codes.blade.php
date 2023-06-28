@@ -6,6 +6,9 @@
 <div class="page-heading d-flex justify-content-between mx-4 mb-2">
     <h1 class="h3 mb-2 text-gray-800">Kode Barang</h1>
 </div>
+@if (session('success'))
+<div class="alert alert-success" role="alert">{{ session('success') }}</div>
+@endif
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -37,8 +40,8 @@
                         <th>No.</th>
                         <th>Kode Barang</th>
                         <th>Nama</th>
-                        <th>Jumlah</th>
                         <th>Kategori</th>
+                        <th>Stock</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -51,11 +54,12 @@
                         <td class="number">{{ $no++ }}.</td>
                         <td class="text-uppercase">{{ $kode->kode_barang }}</td>
                         <td class="text-capitalize">{{ $kode->nama_barang }}</td>
+                        <td class="text-capitalize">{{ $kode->categories->nama_kategori}}</td>
                         <td class="text-capitalize">{{ $kode->jumlah_barang }}</td>
-                        <td class="text-capitalize">{{ $kode->categories->nama_kategori }}</td>
                         <td>
                             <div>
-                                <a href="/delete_code/{{ $kode->id }}" class="btn btn-danger">Hapus</a>
+                                <a href="/edit_kode_barang/{{ $kode->id }}" class="btn btn-primary">Edit</a>
+                                <a href="/delete_kode_barang/{{ $kode->id }}" class="btn btn-danger">Hapus</a>
                             </div>
                         </td>
                     </tr>

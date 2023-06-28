@@ -13,7 +13,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <form action="user_add" method="POST">
+            <form action="{{route('user.add')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name">Nama</label>
@@ -41,7 +41,7 @@
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
-                    @error('role_Id')
+                    @error('role_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -55,7 +55,7 @@
                     @enderror
                 </div>
                 <div class="d-flex justify-content-between mx-2">
-                    <a class="btn btn-info" href="manageUser"> Kembali </a>
+                    <a class="btn btn-info" href="manage_user"> Kembali </a>
                     <button class="btn btn-success" type="submit">+ Tambah</button>
                 </div>
             </form>

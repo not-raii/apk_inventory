@@ -56,7 +56,13 @@
                 Kategori</a>
             <a class="collapse-item {{ ($title == "Kode Barang") ? 'active' : '' }}" href="/kode_barang">
                 <i class="fas fa-file-code"></i>
-                Kode Barang</a>
+                Kode & Stock Barang</a>
+            <a class="collapse-item {{ ($title == "Barang Masuk") ? 'active' : '' }}" href="/barang_masuk">
+                <i class="fas fa-dolly-flatbed"></i>
+                Barang Masuk</a>
+            <a class="collapse-item {{ ($title == "Barang Keluar") ? 'active' : '' }}" href="/barang_keluar">
+                <i class="fas fa-dolly-flatbed fa-flip-horizontal"></i>
+                Barang Keluar</a>
         </div>
     </div>
 </li>
@@ -67,7 +73,7 @@
 <li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}">
     <a class="nav-link" href="/data_barang">
         <i class="fas fa-boxes"></i>
-        <span>Barang</span></a>
+        <span>Log Barang</span></a>
 </li>
 
 <!-- Divider -->
@@ -78,19 +84,6 @@
     Data Laporan
 </div>
 
-<!-- Nav Item - Barang Masuk -->
-<li class="nav-item">
-    <a class="nav-link" href="tables.html">
-        <i class="fas fa-dolly-flatbed"></i>
-        <span>Barang Masuk</span></a>
-</li>
-
-<!-- Nav Item - Barang Keluar -->
-<li class="nav-item">
-    <a class="nav-link" href="tables.html">
-        <i class="fas fa-dolly-flatbed fa-flip-horizontal"></i>
-        <span>Barang Keluar</span></a>
-</li>
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">
@@ -101,8 +94,8 @@
 </div>
 
 @if (Auth::user()->role_id == 1)
-<li class="nav-item">
-    <a class="nav-link" href="manageUser">
+<li class="nav-item {{ ($title == "Tambah User") ? 'active' : '' }}"">
+    <a class="nav-link" href="manage_user">
         <i class="fas fa-users-cog"></i>
         <span>Manajemen Pengguna</span></a>
 </li>

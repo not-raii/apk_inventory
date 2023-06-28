@@ -4,7 +4,8 @@
 @section('content')
                     <!-- Page Heading -->
                     <div class="page-heading d-flex justify-content-between mx-4 mb-2">
-                        <h1 class="h3 mb-2 text-gray-800">Kategori</h1>
+                        <h1 class="h3 mb-2 text-gray-800">Barang Keluar</h1>
+                        <a class="btn btn-success" href="tambah_barang_keluar">+ Tambah</a>
                     </div>
                     @if (session('success'))
                     <div class="alert alert-success" role="alert">{{ session('success') }}</div>
@@ -12,11 +13,8 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-flex justify-content-between">
-                            <h6 class="font-weight-bold text-primary mt-2 ml-2">Data Kategori Barang</h6>
-                            <div>
-                                <a class="btn btn-success" href="kategori_add">+ Tambah</a>
-                            </div>
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Data Barang Keluar</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -24,7 +22,10 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Kategori</th>
+                                            <th>Kode Barang</th>
+                                            <th>Nama barang</th>
+                                            <th>Tanggal keluar</th>
+                                            <th>Jumlah</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -32,19 +33,25 @@
                                         @php
                                             $no = 1;
                                         @endphp
-                                        @foreach ($data as $row)    
+                                        @foreach ($barang as $row)    
                                         <tr>
                                             <td class="number">{{ $no++ }}.</td>
-                                            <td class="text-capitalize">{{ $row->nama_kategori }}</td>
+                                            <td class="text-capitalize">{{ $row->codes->kode_barang??null}}</td>
+                                            <td class="text-capitalize">{{ $row->codes->nama_barang??null}}</td>
+                                            <td class="text-capitalize">{{ $row->tgl_keluar }}</td>
+                                            {{-- <td class="text-capitalize">{{ $row->codes_id }}</td> --}}
+                                            <td class="text-capitalize">{{ $row->qty }}</td>
+                                            {{-- <td class="text-capitalize">{{ $barang->qty }}</td> --}}
                                             <td>
                                                 <div>
-                                                    <a href="/edit_kategori_barang/{{ $row->id }}" class="btn btn-primary">Edit</a>
-                                                    <a href="/delete_category/{{ $row->id }}" class="btn btn-danger">Hapus</a>
+                                                    <a href="/edit_barang_keluar/{{ $row->id }}" class="btn btn-primary">Edit</a>
+                                                    <a href="/delete_barang_keluar/{{ $row->id }}" class="btn btn-danger">Hapus</a>
                                                 </div>
-                                                
                                             </td>
                                         </tr>
-                                        @endforeach                                     
+                     
+                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>

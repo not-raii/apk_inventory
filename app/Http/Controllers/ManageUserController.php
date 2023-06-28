@@ -78,7 +78,12 @@ class ManageUserController extends Controller
             $credentials = $request->only('email', 'password');
             Auth::attempt($credentials);
             $request->session()->regenerate();
-            return redirect('manageUser')->with('success', 'User berhasil di tambahkan');
+            if($request->role_id != 1){
+                return redirect('/');
+            }
+            else {
+                return redirect()->route('user.manage')->with('success', 'User berhasil di tambahkan');
+            }
     
             if(!$create_user){
                 DB::rollBack();
@@ -109,7 +114,7 @@ class ManageUserController extends Controller
     ]);
     }
 
-    public function update ( Request $request, $id, User $user) {
+    public function update ( Request $request, $id) {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -130,7 +135,11 @@ class ManageUserController extends Controller
             $credentials = $request->only('email', 'password');
             Auth::attempt($credentials);
             $request->session()->regenerate();
+            if($request->role_id != 1)
             return redirect()->route('user.manage')->with('success', 'User Updated Successfully.');
+            else {
+                return redirect()->route('user.manage')->with('success', 'User Updated Successfully.');
+            }
     
             if(!$update_user){
                 DB::rollBack();
@@ -149,7 +158,7 @@ class ManageUserController extends Controller
     {
         $data = User::find($id);
         $data->delete();
-        return redirect('manageUser')->with('success', 'User berhasil di hapus');
+        return redirect('manage_user')->with('success', 'User berhasil di hapus');
 
     }
 

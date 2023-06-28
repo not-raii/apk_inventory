@@ -20,7 +20,7 @@ class CategoriesController extends Controller
     public function tambah()
     {
         $kategori = Category::select('nama_kategori')->get();
-        return view('data/add_categories',
+        return view('data/kategori/add_categories',
         [
             "title" => "Tambah Kategori Barang",
             "kategori" => $kategori
@@ -30,21 +30,35 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori' => 'required',
+            'nama_kategori' => 'required|unique:categories',
         ],[
             'nama_kategori.required' => 'Kategori tidak boleh kosong',
         ]);
 
         $kode=Category::create($request->all());
-            return redirect('kategori')->with('success', 'Data berhasil di tambahkan');
+            return redirect('kategori')->with('success', 'Kategori berhasil di tambahkan');
+    }
+
+    public function edit($id) {
+        $category = Category::findOrFail($id);
+        return view('/data/kategori/edit_categories', compact('category'),([
+            'title' => 'Edit Kategori'
+        ]));
+    }
+
+    public function update(Request $request, $id, Category $category) {
+        $category = Category::find($id);
+        $category->nama_kategori = $request->input('nama_kategori');
+        $category->update();
+        return redirect()->route('kategori')->with('success', 'Kategori berhasil di update');
     }
 
     // Function Hapus
     public function hapus($id)
     {
-        $data = Category::find($id);
+        $data = Category::findOrFail($id);
         $data->delete();
-        return redirect('kategori')->with('success', 'Data berhasil di hapus');
+        return redirect()->route('hapus.kategori')->with('success', 'Kategori berhasil di hapus');
 
     }
 }

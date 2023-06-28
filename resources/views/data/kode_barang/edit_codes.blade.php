@@ -1,6 +1,6 @@
 @extends('templates/default')
+
 @section('content')
-<!-- Page Heading -->
 <!DOCTYPE html>
 <html lang="id">
 
@@ -27,58 +27,70 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
 </head>
+<!-- Page Heading -->
 <div class="page-heading d-flex justify-content-between mx-4 mb-2">
-    <h1 class="h3 mb-2 text-gray-800">Management User</h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Kode Barang</h1>
 </div>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Edit User</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Edit Kode Barang</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <form action="{{ route('user.update', $role->id) }}" method="POST">
+            <form action="{{ route('update.codes', $codes->id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="name">Nama</label>
-                    <input name="name" type="text"
-                        class="form-control @error('name') is-invalid @enderror"
-                        value="{{ old('name') ? old('name') : $role->name }}">
-                    @error('name')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input name="email" type="text"
-                        class="form-control @error('email') is-invalid @enderror"
-                        value="{{ old('email') ? old('email') : $role->email }}">
-                    @error('email')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="role">Role</label>
-                    <select name="role_id" class="form-control">
-                        <option value="" selected disabled hidden>Pilih Role</option>
-                        @foreach ($user as $item)
-                        <option value="{{ $item->id }}" {{isset($role) ? ($role->role_id == $item->id ? 'selected' : '') : ''}}>{{ $item->name }}</option>
+                    <label for="codes">Kode Barang</label>
+                    <select name="codes_id" class="form-control  @error('codes_id') is-invalid @enderror">
+                        <option value="">Pilih Code Barang</option>
+                        @foreach ($codes as $item)
+                        <option value="{{ $item->id }}">{{ $item->kode_barang }}</option>
                         @endforeach
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input name="password" type="password"
-                        class="form-control @error('password') is-invalid @enderror"
-                        value="">
-                    @error('password')
+                    @error('codes_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="nama">Nama Barang</label>
+                    <input name="nama_barang" type="text"
+                        class="form-control @error('nama_barang') is-invalid @enderror" id="nama" 
+                        value="{{ $codes->nama_barang }}">
+                    @error('nama_barang')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Barang</label>
+                    <input name="jumlah_barang" type="text"
+                        class="form-control @error('jumlah_barang') is-invalid @enderror" id="jumlah" 
+                        value="{{ $codes->jumlah_barang}}">
+                    @error('jumlah_barang')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="harga">Harga Barang</label>
+                    <input name="harga" type="text" class="form-control" id="harga">
+                </div>
+                <div class="form-group">
+                    <label for="kategori">Kategori</label>
+                    <select name="id_categories" class="form-control @error('id_categories') is-invalid @enderror">
+                        <option value="">Pilih Kategori</option>
+                        @foreach ($kategori as $item)
+                        <option value="{{ $item->id }}" {{isset($codes) ? ($codes->id_categories == $item->id ? 'selected' : '') : ''}}>{{ $item->nama_kategori }}</option>
+                        @endforeach
+                    </select>
+                    @error('id_categories')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                    
+                </div>
                 <div class="d-flex justify-content-between mx-2">
-                    <a class="btn btn-info" href="{{route('user.manage')}}"> Kembali </a>
+                    <a class="btn btn-info" href="{{url('kode_barang')}}"> Kembali </a>
                     <button class="btn btn-success" type="submit">Update</button>
                 </div>
             </form>
@@ -87,22 +99,6 @@
 </div>
 
 </div>
-<script src="{{ '/assets/vendor/jquery/jquery.min.js' }}"></script>
-<script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' }}"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="{{ '/assets/vendor/jquery-easing/jquery.easing.min.js' }}"></script>
-
-
-<!-- Custom scripts for all pages-->
-<script src="{{ '/assets/js/script.js' }}"></script>
-
-<!-- Page level plugins -->
-<script src="{{ '/assets/vendor/chart.js/Chart.min.js' }}"></script>
-
-<!-- Page level custom scripts -->
-<script src="{{ '/assets/js/demo/chart-area-demo.js' }}"></script>
-<script src="{{ '/assets/js/demo/chart-pie-demo.js' }}"></script>
 <script src="{{ '/assets/vendor/jquery/jquery.min.js' }}"></script>
 <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' }}"></script>
 

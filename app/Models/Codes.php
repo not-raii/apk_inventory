@@ -24,4 +24,11 @@ class Codes extends Model
     {
         return $this->belongsTo(Category::class, 'id_categories', 'id');
     }
+
+    public function barangMasuk () {
+        return $this->hasMany(BarangMasuk::class);
+    }
+    public function barangKeluar () {
+        return $this->hasMany(BarangKeluar::class);
+    }
 }
