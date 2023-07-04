@@ -30,9 +30,13 @@ Route::post('/kategori_barang', [CategoriesController::class, 'store']);
 
 // Kode Barang
 Route::get('/kode_barang', [CodesController::class, 'kode']);
-Route::get('/kode_barang_add', [CodesController::class, 'tambah']);
+Route::get('/add', [CodesController::class, 'tambah']);
+Route::get('/edit', [CodesController::class, 'edit']);
 Route::get('/delete_code/{id}', [CodesController::class, 'hapus']);
 Route::post('/kode_barang', [CodesController::class, 'store']);
+Route::get('images/{filename}', 'CodesController@store')->name('image.store');
+
+
 
 // Data barang
 Route::get('/data_barang', [ItemController::class, 'barang']);

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('kode_barang');
             $table->string('gambar_barang');
             $table->string('nama_barang');
-            $table->bigInteger('harga')->nullable();
             $table->bigInteger('id_categories');
             $table->timestamps();
         });

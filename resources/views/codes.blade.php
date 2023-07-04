@@ -12,49 +12,42 @@
     <div class="card-header py-3 d-flex justify-content-between">
         <h6 class="font-weight-bold text-primary mt-2 ml-2">Data Kode Barang</h6>
         <div class="d-flex">
-            
-            <div class="btn-group">
-                <button id="filter-kategori" class="filter btn btn-secondary btn-sm dropdown-toggle mr-3" type="button" data-toggle="dropdown" aria-expanded="false">
-                  Kategori
-                </button>
-                <div class="dropdown-menu">
-                    @foreach ($kategori as $item)
-                        <option class="dropdown-item " name="nama_kategori" selected="{{ isset($_GET['nama_kategori']) && $_GET['nama_kategori'] == 'nama_kategori' }}" value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
-                        @endforeach
-                </div>
-              </div>
-
                 <div>
-                    <a class="btn btn-success" href="kode_barang_add">+ Tambah</a>
+                    <a class="btn btn-success" href="add">+ Tambah</a>
                 </div>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
+
+
              <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Kode Barang</th>
-                        <th>Nama</th>
-                        <th>Jumlah</th>
-                        <th>Kategori</th>
+                        <th>@sortablelink('kode_barang','Kode Barang')</th>
+                        <th>Gambar</th>
+                        <th>@sortablelink('nama_barang','Nama')</th>
+                        <th>@sortablelink('nama_kategori','Kategori')</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php
-                        $no = 1;
+                        $no = 1 + (($data->currentPage()-1) * $data->perPage());
                     @endphp
                     @foreach ($data as $kode)
                     <tr>
                         <td class="number">{{ $no++ }}.</td>
                         <td class="text-uppercase">{{ $kode->kode_barang }}</td>
+                        <td class="img-fluid">
+                            <img src="{{ asset('storage/' . $kode->gambar_barang) }}" class="img-thumbnail" width="50%" height="50%" alt="img">
+                        </td>
                         <td class="text-capitalize">{{ $kode->nama_barang }}</td>
-                        <td class="text-capitalize">{{ $kode->jumlah_barang }}</td>
                         <td class="text-capitalize">{{ $kode->categories->nama_kategori }}</td>
                         <td>
                             <div>
+                                <a href="edit" class="btn btn-info">Edit</a>
                                 <a href="/delete_code/{{ $kode->id }}" class="btn btn-danger">Hapus</a>
                             </div>
                         </td>
@@ -63,7 +56,7 @@
 
                 </tbody>
             </table>
-            {{ $data->links() }}
+            {!! $data->appends(Request::except('page'))->render() !!}
         </div>
     </div>
 </div>

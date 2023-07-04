@@ -7,16 +7,24 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Kyslik\ColumnSortable\Sortable;
 
 class Codes extends Model
 {
     use HasFactory;
+    use Sortable;
 
+    protected $guarded = ['id'];
     protected $fillable = [
         'kode_barang',
+        'gambar_barang',
         'nama_barang',
-        'jumlah_barang',
-        'harga',
+        'id_categories'
+    ];
+
+    public $sortable = [
+        'kode_barang',
+        'nama_barang',
         'id_categories'
     ];
 

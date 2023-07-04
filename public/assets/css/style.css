@@ -166,7 +166,7 @@ a {
 
 a:hover {
   color: #224abe;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([class]) {
@@ -1521,6 +1521,7 @@ pre code {
 .table-bordered thead th,
 .table-bordered thead td {
   border-bottom-width: 2px;
+  color: #4e73df;
 }
 
 .table-borderless th,

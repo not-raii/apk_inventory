@@ -9,7 +9,7 @@ class CategoriesController extends Controller
 {
     public function kategori()
     {
-        $data = Category::all();
+        $data = Category::paginate(5);
         return view('categories', compact('data'),
         [
             "title" => "Kategori"

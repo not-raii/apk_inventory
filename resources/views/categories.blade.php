@@ -27,7 +27,7 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                            $no = 1;
+                                            $no = 1 + (($data->currentPage()-1) * $data->perPage());
                                         @endphp
                                         @foreach ($data as $row)    
                                         <tr>
@@ -43,6 +43,7 @@
                                         
                                     </tbody>
                                 </table>
+                                {!! $data->appends(Request::except('page'))->render() !!}
                             </div>
                         </div>
                     </div>
