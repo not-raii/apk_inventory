@@ -33,16 +33,15 @@ class BarangMasukController extends Controller
             'codes_id' => 'required',
             'qty' => 'required',
             'tgl_masuk' => 'required',
-            'barang_id' => 'nullable',
         ], [
             'codes_id.required' => 'kode barang tidak boleh kosong',
             'qty.required' => 'jumlah barang tidak boleh kosong',
             'tgl_masuk.required' => 'tgl barang tidak boleh kosong',
         ]);
 
-        $brg = Codes::findOrFail($request->codes_id);
-        $brg->jumlah_barang += $request->qty;
-        $brg->save();
+        // $brg = Codes::findOrFail($request->codes_id);
+        // $brg->jumlah_barang += $request->qty;
+        // $brg->save();
 
         $input_barang = BarangMasuk::create($request->all());
 
@@ -65,7 +64,6 @@ class BarangMasukController extends Controller
             'codes_id' => 'required',
             'qty' => 'required',
             'tgl_masuk' => 'required',
-            'barang_id' => 'nullable',
         ],[
             'codes_id.required' => 'kode barang tidak boleh kosong',
             'qty.required' => 'jumlah tidak boleh kosong',
@@ -95,5 +93,6 @@ class BarangMasukController extends Controller
         return redirect()->route('barang.masuk')->with('success', 'Barang berhasil di hapus');
 
     }
+
     
 }

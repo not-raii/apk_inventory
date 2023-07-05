@@ -15,6 +15,8 @@ class CodesController extends Controller
         $kategori = Category::query()->select('id', 'nama_kategori')->get();
         $data = Codes::all();
 
+
+
         $kategori->when($request->nama_kategori, function ($query) use ($request){
             return $query->whereCategory($request->nama_kategori);
         });
@@ -99,4 +101,23 @@ class CodesController extends Controller
         return redirect('kode_barang')->with('success', 'Data berhasil di hapus');
 
     }
+    
+    public function logBarang (Request $request) {
+
+        $barang = Codes::with(['barangMasuk', 'barangKeluar'])->get();
+        
+        
+        // $stockMasuk = BarangMasuk::all();
+        // $stockMasuk->when($request->qty, function ($query) use ($request){
+        //     return $query->whereCategory($request->qty);
+        // });
+        return view('log_barang',compact('barang'),[
+            "title" => "Data Barang",
+            // 'stockMasuk' => $stockMasuk
+
+        ]);
+        
+    }
+
+    
 }

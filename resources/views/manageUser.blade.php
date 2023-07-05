@@ -56,7 +56,7 @@
                                         <tr>
                                             <td class="number">{{ $no++ }}.</td>
                                             <td class="text-capitalize">{{ $user->name }}</td>
-                                            <td class="text-capitalize">{{ $user->email }}</td>
+                                            <td class="text-lowercase">{{ $user->email }}</td>
                                             <td class="text-capitalize">{{ $user->role->name }}</td>
                                             <td>
                                                 <div>

@@ -23,6 +23,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Kode Barang</th>
+                                            <th>Kategori Barang</th>
                                             <th>Nama barang</th>
                                             <th>Tanggal keluar</th>
                                             <th>Jumlah</th>
@@ -37,6 +38,7 @@
                                         <tr>
                                             <td class="number">{{ $no++ }}.</td>
                                             <td class="text-capitalize">{{ $row->codes->kode_barang??null}}</td>
+                                            <td class="text-capitalize">{{ $row->codes->categories->nama_kategori??null}}</td>
                                             <td class="text-capitalize">{{ $row->codes->nama_barang??null}}</td>
                                             <td class="text-capitalize">{{ $row->tgl_keluar }}</td>
                                             {{-- <td class="text-capitalize">{{ $row->codes_id }}</td> --}}

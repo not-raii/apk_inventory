@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\LogBarang;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 
 class Category extends Model
@@ -22,5 +23,9 @@ class Category extends Model
     public function codes()
     {
         return $this->hasMany(Code::class);
+    }   
+    public function logBarang()
+    {
+        return $this->hasMany(LogBarang::class);
     }   
 }

@@ -24,7 +24,7 @@
 </div>
 
 <!-- Nav Item - Pages Collapse Menu Users -->
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link collapsed" href="/" data-toggle="collapse" data-target="#collapsePageUser"
         aria-expanded="true" aria-controls="collapsePageUser">
         <i class="fas fa-users"></i>
@@ -40,7 +40,7 @@
                 User</a>
         </div>
     </div>
-</li>
+</li> --}}
 
 <!-- Nav Item - Pages Collapse Menu Users -->
 <li class="nav-item">
@@ -71,7 +71,7 @@
 
 <!-- Nav Item - Barang -->
 <li class="nav-item {{ ($title == "Data Barang") ? 'active' : '' }}">
-    <a class="nav-link" href="/data_barang">
+    <a class="nav-link" href="log_barang">
         <i class="fas fa-boxes"></i>
         <span>Log Barang</span></a>
 </li>

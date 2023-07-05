@@ -12,6 +12,7 @@ use App\Http\Controllers\CodesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\LogBarangController;
 use App\Models\BarangKeluar;
 
 /*
@@ -26,56 +27,11 @@ use App\Models\BarangKeluar;
 */
 
 
-
-// // Route::get('/', [HomeController::class, 'index']);
-// // Route::get('/table', [HomeController::class, 'table']);
-// // // Route::get('/', [HomeController::class, 'footer']);
-
 Route::get('/', [AuthController::class, 'login'])->middleware('guest')->name('/');
 Route::post('/', [AuthController::class, 'auth'])->middleware('guest'); 
 Route::get('/logout',[AuthController::class, 'logout'])->middleware('auth');
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
-// Route::middleware(['guest'])->group(function(){
-//     Route::get('/', [SesiController::class, 'index'])->name('login');
-//     Route::post('/', [SesiController::class, 'login']);
-// });
 
-
-// Route::middleware(['auth'])->group(function(){
-// //     Route::get('/admin', [AdminController::class, 'index'])->middleware('userAkses == 1')->name('home.admin');
-// //     Route::get('/user', [AdminController::class, 'user'])->middleware('userAkses == 2')->name('home.user');
-//     Route::get('/logout',[SesiController::class, 'logout']);
-// });
-
-// Route::middleware('adminAkses')->group(function(){
-//     Route::get('/admin', [AdminController::class, 'index']);
-// });
-
-// // Route::get('/login', [AuthController::class, 'login']);
-// Route::get('/admin', [HomeController::class, 'admin']);
-// Route::get('/user', [HomeController::class, 'user']);
-
-// // Route::get('/login', [AuthController::class, 'login']);
-
-// // Route::get('/', [HomeController::class, 'admin']);
-
-
-// Route::get('/home', function(){
-//     return redirect('/admin');
-// });
-// use GuzzleHttp\Middleware;
-
-// // Login
-// // Route::get('/', [AuthController::class, 'login']);
-// // Route::post('/', [AuthController::class, 'auth']);
-
-// // Route::group(['middleware' => ['auth:admin', 'ceklevel:admin']], function(){
-// //     route::get('/dashboard', 'AdminController@index')->name('dashboard');
-// // });
-
-// // Route::group(['middleware' => ['auth:users', 'ceklevel:users']], function(){
-// //     route::get('/dashboard', 'AdminController@user')->name('dashboard');
-// // });
 
 // Kategori
 Route::middleware(['auth'])->group(function() {
@@ -95,11 +51,11 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/edit_kode_barang/{id}', [CodesController::class, 'edit']);
     Route::put('/edit_kode_barang/{id}', [CodesController::class, 'update'])->name('update.codes');
     Route::get('/delete_kode_barang/{id}', [CodesController::class, 'hapus']);
+    Route::get('/log_barang', [CodesController::class, 'logBarang']);
     
 });
 
-// Data barang
-Route::get('/data_barang', [ItemController::class, 'barang']);
+
 
 Route::get('/dataAdmin', [HomeController::class, 'dataAdmin']);
 
@@ -111,6 +67,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/edit_barang_masuk/{id}',[BarangMasukController::class, 'edit']);
     Route::put('/edit_barang_masuk/{id}',[BarangMasukController::class, 'update'])->name('update.barang');
     Route::get('/delete_barang_masuk/{id}', [BarangMasukController::class, 'hapus']);
+
+
 
 });
 

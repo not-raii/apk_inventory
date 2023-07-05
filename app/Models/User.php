@@ -37,4 +37,5 @@ class User extends Authenticatable
     //         get: fn($value) => ['role_id'] [$value]
     //     );
     // }
+
 }

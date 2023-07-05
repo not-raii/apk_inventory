@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 
 class Codes extends Model
 {
@@ -26,9 +27,18 @@ class Codes extends Model
     }
 
     public function barangMasuk () {
-        return $this->hasMany(BarangMasuk::class);
+        return $this->hasMany(BarangMasuk::class, 'codes_id', 'id');
     }
     public function barangKeluar () {
-        return $this->hasMany(BarangKeluar::class);
+        return $this->hasMany(BarangKeluar::class, 'codes_id', 'id');
     }
+
+    
+
+    // public function geStockMasukAttribute() {
+    //     return BarangMasuk::where(function($query) {
+    //         $query->where('codes_id', $this->attributes['id'])->whereRaw('qty');
+    //     })->count();
+    // }
+
 }

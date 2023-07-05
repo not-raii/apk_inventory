@@ -75,15 +75,15 @@ class ManageUserController extends Controller
                 'password' => Hash::make($request->password)
             ]);
 
-            $credentials = $request->only('email', 'password');
-            Auth::attempt($credentials);
-            $request->session()->regenerate();
-            if($request->role_id != 1){
-                return redirect('/');
-            }
-            else {
+            // $credentials = $request->only('email', 'password');
+            // Auth::attempt($credentials);
+            // $request->session()->regenerate();
+            // if($request->role_id != 1){
+            //     return redirect('/');
+            // }
+            // else {
                 return redirect()->route('user.manage')->with('success', 'User berhasil di tambahkan');
-            }
+            // }
     
             if(!$create_user){
                 DB::rollBack();
@@ -132,14 +132,12 @@ class ManageUserController extends Controller
                 'role_id' => $request->role_id,
                 'password' => Hash::make($request->password)
             ]);
-            $credentials = $request->only('email', 'password');
-            Auth::attempt($credentials);
-            $request->session()->regenerate();
-            if($request->role_id != 1)
+            // $credentials = $request->only('email', 'password');
+            // if($request->role_id != 1)
             return redirect()->route('user.manage')->with('success', 'User Updated Successfully.');
-            else {
-                return redirect()->route('user.manage')->with('success', 'User Updated Successfully.');
-            }
+            // else {
+            //     return redirect()->route('user.manage')->with('success', 'User Updated Successfully.');
+            // }
     
             if(!$update_user){
                 DB::rollBack();
